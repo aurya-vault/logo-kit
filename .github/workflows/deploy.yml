@@ -59,6 +59,7 @@ jobs:
           docker compose build
           for img in $(docker compose config --images); do
             docker tag "$img" "${img%:*}:$SHA" 2>/dev/null || true
+            echo "image tagged: ${img%:*}:$SHA"
           done
           docker compose up -d --remove-orphans
           docker ps --filter name=logo-kit
