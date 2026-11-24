@@ -7,12 +7,6 @@
 
 - Dockerfile 的 pnpm install 加最多 4 次重试,应对 corepack/镜像偶发 DNS 与连接失败
 
-## [1.0.1] - 2026-11-21
-
-- Dockerfile 的 pnpm install 加最多 4 次重试,应对 corepack/镜像偶发 DNS 与连接失败
-
-## [1.0.1] - 2026-11-21
-
 **流水线**
 - deploy.yml 的触发参数改走环境变量,防命令注入;依赖安装挂构建缓存卷(适用时)。
 
