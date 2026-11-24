@@ -58,6 +58,12 @@ jobs:
         run: |
           set -euo pipefail
           cd /opt/projects/logo-kit
+          git fetch --all --tags --prune
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] && [ -n "$INPUT_REF" ]; then
+            git checkout --detach "$INPUT_REF"
+          else
+            git reset --hard origin/main
+          fi
           SHA=$(git rev-parse --short HEAD)
           echo "deployed: $SHA  reason: $INPUT_REASON"
           docker compose build
